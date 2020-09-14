@@ -1,4 +1,5 @@
 const pool = require('../config/database');
+const { text } = require('body-parser');
 
 exports.registrarProducto = (nombreProducto, precioProducto) => {
     const textSql = 'SELECT func_registrar_producto($1, $2) as success;';
@@ -20,5 +21,17 @@ exports.editarProducto = (iProducto, nombreProducto, productoPrecio) => {
 exports.bajaReactivarProducto = (iProducto, iOpcion) => {
     const textSql = 'SELECT func_baja_reactivar_producto($1, $2) as success;';
     const sqlValues = [iProducto, iOpcion];
+    return pool.query(textSql, sqlValues);
+}
+
+exports.decrementarCantidadProductoPedido = (iPedido, iProducto, iCosto, iCantidad) => {
+    const textSql = 'SELECT func_eliminar_producto_pedido($1, $2, $3, $4) as resultado;';
+    const sqlValues = [iPedido, iProducto, iCosto, iCantidad];
+    return pool.query(textSql, sqlValues);
+}
+
+exports.incrementarCantidadProductoPedido = (iPedido, iProducto, iCosto, iCantidad) => {
+    const textSql = 'SELECT func_incrementar_producto_pedido($1, $2, $3, $4) as resultado;';
+    const sqlValues = [iPedido, iProducto, iCosto, iCantidad];
     return pool.query(textSql, sqlValues);
 }

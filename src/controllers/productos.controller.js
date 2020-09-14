@@ -32,3 +32,23 @@ exports.bajaReactivarProducto = async(req,res) => {
     const data = dbResponse.rows;
     res.send(data);
 }
+
+exports.decrementarCantidadProductoPedido = async(req,res) => {
+    const iProducto = req.body.id_producto;
+    const iPedido = req.body.id_pedido;
+    const iCantidad = req.body.cantidad;
+    const iCosto = req.body.costo;
+    const dbResponse = await productosModel.decrementarCantidadProductoPedido(iPedido, iProducto, iCosto, iCantidad);
+    const data = dbResponse.rows;
+    res.send(data);
+}
+
+exports.incrementarCantidadProductoPedido = async(req,res) => {
+    const iProducto = req.body.id_producto;
+    const iPedido = req.body.id_pedido;
+    const iCantidad = req.body.cantidad;
+    const iCosto = req.body.costo;
+    const dbResponse = await productosModel.incrementarCantidadProductoPedido(iPedido, iProducto, iCosto, iCantidad);
+    const data = dbResponse.rows;
+    res.send(data);
+}
