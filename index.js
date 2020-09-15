@@ -14,7 +14,9 @@ const productosRoute = require('./src/routes/productos.route');
 const pedidosRoute = require('./src/routes/pedidos.route');
 const configuracionesRoute = require('./src/routes/configuraciones.route');
 const cortesRoute = require('./src/routes/cortes.route');
+const cuentasRoute = require('./src/routes/cuentas.route');
 const loginRoute = require('./src/routes/login.route');
+
 
 app.use(bodyParser.json());
 
@@ -23,6 +25,7 @@ app.use(productosRoute);
 app.use(pedidosRoute);
 app.use(configuracionesRoute);
 app.use(cortesRoute);
+app.use(cuentasRoute);
 app.use(loginRoute);
 
 app.listen(PORT, () => {

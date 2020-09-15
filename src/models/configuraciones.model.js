@@ -11,3 +11,8 @@ exports.configurarCantidadCorteTope = (iCantidad) => {
     const sqlValues = [iCantidad];
     return pool.query(textSql, sqlValues);
 }
+
+exports.consultarCorteAlcanzado = () => {
+    const textSql = 'SELECT func_consultar_corte_alcanzado() as resultado;';
+    return pool.query(textSql);
+}

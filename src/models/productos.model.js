@@ -1,5 +1,4 @@
 const pool = require('../config/database');
-const { text } = require('body-parser');
 
 exports.registrarProducto = (nombreProducto, precioProducto) => {
     const textSql = 'SELECT func_registrar_producto($1, $2) as success;';
