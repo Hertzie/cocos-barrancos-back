@@ -31,3 +31,22 @@ exports.consultarCorteAlcanzado = async(req,res) => {
 
     res.status(200).send(objRespuesta);
 }
+
+exports.obtenerPaginasRol = async(req,res) => {
+    const iRol = req.body.id_rol;
+    const dbResponse = await configuracionesModel.obtenerPaginasRol(iRol);
+    const data = dbResponse.rows;
+    res.send(data);
+}
+
+exports.obtenerTipoRol = async(req,res) => {
+    const dbResponse = await configuracionesModel.obtenerTipoServicio();
+    const data = dbResponse.rows;
+    res.send(data);
+}
+
+exports.obtenerMesas = async(req,res) => {
+    const dbResponse = await configuracionesModel.obtenerMesas();
+    const data = dbResponse.rows;
+    res.send(data);
+}

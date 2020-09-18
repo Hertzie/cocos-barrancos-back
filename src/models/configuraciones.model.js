@@ -16,3 +16,19 @@ exports.consultarCorteAlcanzado = () => {
     const textSql = 'SELECT func_consultar_corte_alcanzado() as resultado;';
     return pool.query(textSql);
 }
+
+exports.obtenerPaginasRol = (iRol) => {
+    const textSql = 'SELECT * FROM func_obtener_paginas_rol($1) as resultado;';
+    const sqlValues = [iRol];
+    return pool.query(textSql, sqlValues);
+}
+
+exports.obtenerTipoServicio = () => {
+    const textSql = 'SELECT * FROM func_obtener_tipo_servicio() as resultado;';
+    return pool.query(textSql);
+}
+
+exports.obtenerMesas = () => {
+    const textSql = 'SELECT * FROM func_obtener_mesas() as resultado;';
+    return pool.query(textSql);
+}

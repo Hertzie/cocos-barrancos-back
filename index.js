@@ -16,6 +16,7 @@ const configuracionesRoute = require('./src/routes/configuraciones.route');
 const cortesRoute = require('./src/routes/cortes.route');
 const cuentasRoute = require('./src/routes/cuentas.route');
 const loginRoute = require('./src/routes/login.route');
+const empleadosRoute = require('./src/routes/empleados.route');
 
 
 app.use(bodyParser.json());
@@ -27,6 +28,7 @@ app.use(configuracionesRoute);
 app.use(cortesRoute);
 app.use(cuentasRoute);
 app.use(loginRoute);
+app.use(empleadosRoute);
 
 app.listen(PORT, () => {
     console.log("Servidor corriendo en puerto: ", PORT);
